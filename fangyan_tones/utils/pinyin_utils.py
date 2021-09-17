@@ -3,10 +3,9 @@ from pypinyin import Style as style
 
 tone_styles = [style.TONE, style.TONE2, style.TONE3]
 
-
 def char_to_pinyin(char: str, tone_style: int = None) -> str:
     """Converts a single character to pinyin
-    # TODO support heteronyms
+    # TODO support heteronyms?
 
     Parameters
     ----------
@@ -23,7 +22,23 @@ def char_to_pinyin(char: str, tone_style: int = None) -> str:
     # Is created as a list of lists, so return as just string
     return to_pinyin(char, style=tone_styles[tone_style], heteronyms=False)[0][0]
 
-def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
+def chars_to_pinyin(chars: str, tone_style: int=2, as_list=True) -> [str]:
+    """Converts a series characters in a single str into a list of pinyin representing those characters
+        
+    Parameters
+    ----------
+    chars : str
+        A string representing a series of characters
+    tone_style : int
+        The tone style to use in the pinyin
+    as_list : bool, optional
+        If the result should be returned as a list , or as a space separated string
+
+    Returns
+    -------
+    [str]
+        [description]
+    """
     chars_list = to_pinyin(chars, style=tone_style)
 
     if as_list:
@@ -31,16 +46,3 @@ def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
 
     # Return as space separated sentence
     return chars_list.join(" ")
-
-def load_and_convert():
-    while True:
-        try:
-            user_input = input()
-            print(chars_to_pinyin(user_input, 1))
-        except EOFError:
-            break
-    
-
-
-if __name__ == "__main__":
-    load_and_convert()
