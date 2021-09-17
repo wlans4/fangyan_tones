@@ -2,7 +2,7 @@ from typing import String
 import re
 punc = "！？｡。＂＃＄％＆＇（）＊＋，－／：；＜＝＞＠［＼］＾＿｀｛｜｝～｟｠｢｣､、〃》「」『』【】〔〕〖〗〘〙〚〛〜〝〞〟〰〾〿–—‘’‛“”„‟…‧﹏.".decode("utf-8")
 
-def remove_chinese_punctuation(sentence: String) -> String:
+def filter_chinese_punctuation(sentence: String) -> String:
     """Strips punctuation from an chinese sentence using regex
 
     Parameters
