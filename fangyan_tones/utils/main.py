@@ -34,7 +34,7 @@ def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
 
 def load_and_convert():
     user_input = input()
-    print(chars_to_pinyin(user_input, 3))
+    print(chars_to_pinyin(user_input, 1))
 
 
 if __name__ == "__main__":
