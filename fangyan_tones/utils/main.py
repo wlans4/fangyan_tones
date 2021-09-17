@@ -33,8 +33,13 @@ def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
     return chars_list.join(" ")
 
 def load_and_convert():
-    user_input = input()
-    print(chars_to_pinyin(user_input, 1))
+    while True:
+        try:
+            user_input = input()
+            print(chars_to_pinyin(user_input, 1))
+        except EOFError:
+            break
+    
 
 
 if __name__ == "__main__":
