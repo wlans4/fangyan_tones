@@ -4,7 +4,7 @@ from pypinyin import Style as style
 tone_styles = [style.TONE, style.TONE2, style.TONE3]
 
 
-def char_to_pinyin(char: str, tone_style: int) -> str:
+def char_to_pinyin(char: str, tone_style: int = None) -> str:
     """Converts a single character to pinyin
     # TODO support heteronyms
 
@@ -13,7 +13,7 @@ def char_to_pinyin(char: str, tone_style: int) -> str:
     char : String
         A single chinese character
     tone_style : int
-        an integeter representing the tone style to use. 0 is "zhōng" 1 is "zho1ng", 2 is "xin1"
+        an integeter representing the tone style to use. 0 is "zhong", 1 is "zhōng", 2 is "zho1ng"
 
     Returns
     -------
@@ -21,7 +21,7 @@ def char_to_pinyin(char: str, tone_style: int) -> str:
         The pinyin representing the single chinese character
     """
     # Is created as a list of lists, so return as just string
-    pinyin = to_pinyin(char, style=tone_styles[tone_style], heteronyms=False)[0][0]
+    return to_pinyin(char, style=tone_styles[tone_style], heteronyms=False)[0][0]
 
 def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
     chars_list = to_pinyin(chars, style=tone_style)
@@ -34,7 +34,7 @@ def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
 
 def load_and_convert():
     user_input = input()
-    print(chars_to_pinyin, 0)
+    print(chars_to_pinyin(user_input, 3))
 
 
 if __name__ == "__main__":
