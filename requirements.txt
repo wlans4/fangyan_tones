@@ -1,1 +1,4 @@
 pypinyin
+youtube_dl
+speechbrain
+pydub
