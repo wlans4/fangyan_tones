@@ -13,7 +13,9 @@ from fangyan_tones.utils import (
 
 def load_and_convert():
     user_input = input()
-    print(filter_chinese_specific_punctuation(chars_to_pinyin(user_input, 1)))
+    cleaned_input = filter_chinese_specific_punctuation(user_input)
+    pinyin = chars_to_pinyin(cleaned_input, 2, as_list=False)
+    print(pinyin)
 
 
 if __name__ == "__main__":
