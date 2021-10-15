@@ -6,4 +6,11 @@ Repo for the study of tonal composition of chinese music, specifically rap
 To setup the project, run 
 ```pip install .``` or ``` pip install -e .``` for an editable version
 
-You should then be able to run main.py in scripts to pass in chinese text
+You should then be able to run chinese_to_pinyin_demo.py in scripts to pass in chinese text
+
+
+In order to download wavs using download_wavs.py, you must be on a debian based os or MacOS.
+
+On debian, install ```sudo apt install ffmpeg```.
+
+Otherwise on MacOS, ```brew install ffmpeg```
