@@ -22,7 +22,7 @@ def load_and_convert():
                 create_table()
             else:
                 cleaned_input = filter_chinese_specific_punctuation(user_input)
-                pinyin = chars_to_pinyin(cleaned_input, 1, as_list=False)
+                pinyin = chars_to_pinyin(cleaned_input, 2, as_list=True)
                 curPinyin += pinyin
                 print(curPinyin)
         except EOFError:

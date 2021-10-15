@@ -39,7 +39,7 @@ def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
     [str]
         [description]
     """
-    chars_list = to_pinyin(chars, style=tone_style)
+    chars_list = to_pinyin(chars, style=tone_styles[tone_style])
     chars_list = [char[0] for char in chars_list if char[0] != " "]
     if as_list:
         return chars_list
