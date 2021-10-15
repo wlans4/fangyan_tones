@@ -14,16 +14,17 @@ def create_table():
     return 0
 
 def load_and_convert():
-    curInput = []
+    curPinyin = []
     while True:
         try:
             user_input = input()
             if user_input == "Analyze":
                 create_table()
             else:
-                curInput += chars_to_pinyin(user_input, 1)
-                print(curInput)
-
+                cleaned_input = filter_chinese_specific_punctuation(user_input)
+                pinyin = chars_to_pinyin(cleaned_input, 1, as_list=False)
+                curPinyin += pinyin
+                print(curPinyin)
         except EOFError:
             break
 

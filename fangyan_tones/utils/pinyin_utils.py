@@ -40,11 +40,9 @@ def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
         [description]
     """
     chars_list = to_pinyin(chars, style=tone_style)
-
+    chars_list = [char[0] for char in chars_list if char[0] != " "]
     if as_list:
         return chars_list
 
     # Return as space separated sentence
-    return chars_list.join(" ")
-
-# def adjust_for_tone_rules(chars: str) -> [str]:
+    return " ".join(chars_list)

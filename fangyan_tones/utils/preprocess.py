@@ -14,7 +14,7 @@ def filter_chinese_specific_punctuation(sentence: str) -> str:
         The cleaned sentence
     """
     filter = re.findall(u'([\u4e00-\u9fff0-9a-zA-Z]|(?<=[0-9])[^\u4e00-\u9fff0-9a-zA-Z]+(?=[0-9]))', sentence)
-    return filter.join('')
+    return " ".join(filter)
 
 def filter_general_punctuation(sentence: str) -> str:
     """Filters out more general punctuation, as well as any english punctuation
