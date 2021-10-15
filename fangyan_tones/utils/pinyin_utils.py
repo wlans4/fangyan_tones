@@ -3,7 +3,7 @@ from pypinyin import Style as style
 
 tone_styles = [style.TONE, style.TONE2, style.TONE3]
 
-def char_to_pinyin(char: str, tone_style: int = None) -> str:
+def char_to_pinyin(char: str, tone_style: int) -> str:
     """Converts a single character to pinyin
     # TODO support heteronyms?
 
@@ -22,7 +22,7 @@ def char_to_pinyin(char: str, tone_style: int = None) -> str:
     # Is created as a list of lists, so return as just string
     return to_pinyin(char, style=tone_styles[tone_style], heteronyms=False)[0][0]
 
-def chars_to_pinyin(chars: str, tone_style: int=2, as_list=True) -> [str]:
+def chars_to_pinyin(chars: str, tone_style: int, as_list=True) -> [str]:
     """Converts a series characters in a single str into a list of pinyin representing those characters
         
     Parameters
