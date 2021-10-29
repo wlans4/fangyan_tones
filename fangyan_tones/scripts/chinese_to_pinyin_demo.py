@@ -9,26 +9,42 @@ from fangyan_tones.utils import (
     filter_general_punctuation,
     filter_all_non_chinese_text
 )
+from fangyan_tones.utils.table_generator import generate
 
 def create_table(line_endings):
-    table = dict.fromkeys(['1', '2', '3', '4', 'Neutral', 'Total'], 0)
+    table = dict.fromkeys(['1', '2', '3', '4', 'Neutral 1', 'Neutral 2', 'English', 'Falling Contours', 'Total'], 0)
+    print(line_endings)
     for char in line_endings:
         # print(char)
         if char[-1].isdigit():
             table[char[-1]] += 1
         else:
-            table['Neutral'] += 1
+            table['Neutral 1'] += 1
+    table['Falling Contours'] = table['3'] + table['4'] + table['Neutral 1'] + table['English']
     table['Total'] = len(line_endings)
     return table
 
 def load_and_convert():
     curPinyin = []
     line_endings = []
+    # generate("", [])
     while True:
         try:
             user_input = input()
-            if user_input == "Analyze":
-                print(create_table(line_endings))
+            if user_input[:7] == "Analyze":
+                params = user_input[8:]
+                # print(create_table(line_endings))
+                table = create_table(line_endings)
+                col_heads = []
+                row = ["Count"]
+                for (key, value) in table.items():
+                    col_heads.append(key)
+                    row.append(value)
+                data = [
+                    col_heads,
+                    row
+                ]
+                generate(params, data)
             else:
                 cleaned_input = filter_chinese_specific_punctuation(user_input)
                 pinyin = chars_to_pinyin(cleaned_input, 2, as_list=True)

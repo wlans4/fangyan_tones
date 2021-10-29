@@ -2,3 +2,5 @@ pypinyin
 youtube_dl
 speechbrain
 pydub
+numpy
+matplotlib
