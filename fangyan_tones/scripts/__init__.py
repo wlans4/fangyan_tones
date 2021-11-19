@@ -1,0 +1,1 @@
+from separate_audio_vocal_remover import VocalRemover
