@@ -4,8 +4,10 @@ speechbrain
 pydub
 numpy
 matplotlib
-torch>=1.5.1
-torchvision>=0.6.1
-tqdm>=4.30
-librosa>=0.6.3
-opencv_python>=4.2.0
+torch
+torchvision
+tqdm
+librosa
+opencv_python
+pydub
+argparse
