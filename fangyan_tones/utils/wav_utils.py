@@ -77,9 +77,9 @@ def separate_audio(wav_paths):
         basename = os.path.splitext(os.path.basename(wav))[0]
         print('done')
 
-        if X.ndim == 1:
-            # mono to stereo
-            X = np.asarray([X, X])
+        # if X.ndim == 1:
+        #     # mono to stereo
+        #     X = np.asarray([X, X])
 
         X_spec = spec_utils.wave_to_spectrogram(X, args.hop_length, args.n_fft)
 
