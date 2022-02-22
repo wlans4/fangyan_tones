@@ -1,6 +1,12 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+import xlsxwriter as xlwriter
+
+def generate():
+    workbook = xlwriter.Workbook('temp.xlsx')
+    worksheet = workbook.add_worksheet()
+
 def generate(title_info, data):
     title_text = 'Tone Table: ' + title_info
     # footer_text = 'June 24, 2020'
