@@ -4,12 +4,11 @@ import pathlib
 
 directory = "/Users/wyatt/Projects/fangyan_tones/fangyan_tones/raw_wavs"
 segments = [
+
+    ["0:45-1:27", "1:28-2:08"],
     ["0:30-1:20", "1:46-2:10"],
-    ["0:33-1:25", "1:51-2:12"],
-
+    ["0:33-1:25", "1:46-2:10"]
 ]
-
-
 
 if __name__ == "__main__":
     
