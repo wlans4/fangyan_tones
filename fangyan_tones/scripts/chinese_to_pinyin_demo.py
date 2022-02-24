@@ -34,6 +34,11 @@ def create_table(line_endings_by_verse):
         rows.append(table)
     totals['Falling Contours'] = totals['3'] + totals['4'] + totals['Neutral 1'] + totals['English']
     rows.append(totals)
+    # make percents
+    percents = dict.fromkeys(['1', '2', '3', '4', 'Neutral 1', 'Neutral 2', 'English', 'Falling Contours', 'Total'], 0)
+    for key, value in totals.items():
+        percents[key] = value / totals['Total']
+    rows.append(percents)
     return rows
 
 def load_and_convert():
