@@ -10,5 +10,4 @@ from .preprocess import (
     remove_stop_words
 )
 
-
 from .table_generator import generate
