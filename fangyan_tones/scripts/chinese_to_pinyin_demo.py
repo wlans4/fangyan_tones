@@ -61,9 +61,9 @@ def load_and_convert():
             if pinyin:
                 line_endings_this_verse.append(pinyin[-1])
             user_input = input()
-        print("hi")
+        # print("hi")
         line_endings_by_verse.append(line_endings_this_verse)
-        print(line_endings_by_verse)
+        # print(line_endings_by_verse)
 
     print("Enter lyrics for chorus/hook, and Analyze when done:")
     user_input = input()
@@ -77,7 +77,7 @@ def load_and_convert():
             line_endings_this_verse.append(pinyin[-1])
         user_input = input()
     line_endings_by_verse.append(line_endings_this_verse)
-    print(line_endings_by_verse)
+    # print(line_endings_by_verse)
     params = user_input[8:]
     # print(create_table(line_endings))
     table = create_table(line_endings_by_verse)
@@ -87,7 +87,7 @@ def load_and_convert():
     ]
     for i in range(len(table)):
         new_row = list(table[i].values())
-        print(new_row)
+        # print(new_row)
         if i + 1 == len(table):
             new_row = ["Total"] + new_row
         elif i + 2 == len(table):
