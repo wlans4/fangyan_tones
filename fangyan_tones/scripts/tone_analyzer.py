@@ -87,10 +87,13 @@ def load_and_convert():
     ]
     for i in range(len(table)):
         new_row = list(table[i].values())
+        print(new_row)
         # print(new_row)
         if i + 1 == len(table):
-            new_row = ["Total"] + new_row
+            new_row = ["Percentages"] + new_row
         elif i + 2 == len(table):
+            new_row = ["Total"] + new_row
+        elif i + 3 == len(table):
             new_row = ["Hook"] + new_row
         else:
             name = "Verse " + str((i+1))

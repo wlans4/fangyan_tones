@@ -11,3 +11,4 @@ librosa
 opencv_python
 pydub
 argparse
+xlsxwriter
