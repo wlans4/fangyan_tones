@@ -2,13 +2,13 @@ import subprocess
 import glob
 import time
 
+from fangyan_tones.utils.wav_utils import split_segment, separate_audio
+import pathlib
+
 example_songs = ["https://www.youtube.com/watch?v=aknkofx2bHg"]
 directory = "/Users/wyatt/Projects/fangyan_tones/fangyan_tones/raw_wavs"
 segments = [["0:45-1:27", "1:28-2:08"], ["0:30-1:20", "1:46-2:10"],
             ["0:33-1:25", "1:46-2:10"]]
-
-from fangyan_tones.utils.wav_utils import split_segment, separate_audio
-import pathlib
 
 if __name__ == "__main__":
 
@@ -22,6 +22,7 @@ if __name__ == "__main__":
         # video_title = ""
         import os
         import subprocess
+        # Not sure if running these as subprocesses actually leads to any speedup here, can probably just do all of these sequentially..
         subprocess.run([
             'youtube-dl', '-f', 'bestaudio[ext=m4a]', example_song, '--output',
             'fangyan_tones/raw_wavs/%(title)s.%(ext)s"', '--extract-audio'
