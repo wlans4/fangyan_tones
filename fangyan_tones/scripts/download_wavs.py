@@ -41,7 +41,11 @@ if __name__ == "__main__":
         for file_path in audio_files:
             file_out = file_path[:-4] + ".wav"
 
-            os.system('ffmpeg -i ' + "'" + file_path + "'" + " '" + file_out +
+                        
+            # see more info here for filtering high freq:
+            # https://superuser.com/questions/733061/reduce-background-noise-and-optimize-the-speech-from-an-audio-clip-using-ffmpeg
+            # Convert to wav with lowpass filter for maximizing upper range to 4khz
+            os.system('ffmpeg -i ' + "'" + file_path + "'" + " -af 'lowpass=f=4000 " + file_out +
                       "'")
             os.remove(file_path)
             break
